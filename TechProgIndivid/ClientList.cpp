@@ -53,31 +53,34 @@ void ClientList::showClientList()
 			std::cout.width(3);
 			std::cout << "|| ";
 
-			std::cout.width(20);
+			std::cout.width(25);
 			std::cout << (*iter)->getName();
 
 			std::cout.width(4);
 			std::cout << " || ";
 
-			std::cout.width(13);
+			std::cout.width(20);
 			std::cout << (*iter)->getTel();
 
-			std::cout.width(4);
+			std::cout.width(2);
 			std::cout << " || ";
 
-			std::cout.width(8);
+			std::cout.width(14);
 			std::cout << (*iter)->getlDioptry();
 
-			std::cout.width(4);
+			std::cout.width(2);
 			std::cout << " || ";
 
-			std::cout.width(8);
+			std::cout.width(15);
 			std::cout << (*iter)->getrDioptry();
+
+			std::cout.width(2);
+			std::cout << " || ";
 			
 			this->iter++;
 		}
 
-		std::cout << "||______________________||_________________||_______________||____________||" << std::endl;
+		std::cout << "\n||---------------------------||----------------------||----------------||-----------------||" << std::endl;
 
 		system("pause");
 	}
