@@ -12,7 +12,7 @@ private:
 
 public:
 	Client(std::string n, std::string tel, float l_dio, float r_dio);
-	~Client();
+	virtual ~Client();
 
 	//Accessors
 	std::string getName();

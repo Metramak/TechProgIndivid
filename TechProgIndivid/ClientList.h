@@ -11,10 +11,11 @@ private:
 
 public:
 
-	~ClientList();
+	virtual ~ClientList();
 
 	void insertClient(Client*);
 	float getDioptryByName(std::string);
+	std::string getNameByPhone(std::string);
 	void showClientList();
 
 };

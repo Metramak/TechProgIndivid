@@ -8,6 +8,10 @@ class Menu
 private:
 	ClientList* ptrClientList;
 
+	std::vector<DoctorApp*> vectPtrAppDoctor;
+	std::vector<DoctorApp*>::iterator iter;
+
+	int tMonth, tDay, tService;
 	char selector;
 	std::string tempName;
 	std::string tempPhone;
@@ -18,7 +22,7 @@ private:
 
 public:
 	Menu();
-	~Menu();
+	virtual ~Menu();
 
 	//Functions
 	void interact();

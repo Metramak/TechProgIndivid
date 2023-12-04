@@ -18,7 +18,8 @@ void Menu::interact()
 		std::cout << "Меню\n";
 
 		std::cout << "1. Добавление нового клиента\n";
-		std::cout << "2. Вывести всех клиентов\n\n";
+		std::cout << "2. Вывести всех клиентов\n";
+		std::cout << "3. Добавить запись к врачу\n\n";
 
 		std::cin >> this->selector;
 
@@ -40,6 +41,13 @@ void Menu::interact()
 		case '2': 
 			ptrClientList->showClientList();
 			break;
+		case '3':
+			std::cout << "Введите имя клиента: ";
+			std::cin >> this->tempName;
+			std::cout << "Введите телефон клиента";
+			std::cin >> this->tempPhone;
+			std::cout << "Выберите услугу\n1-Консультация\n2-Повторный прием\n3-Проверка зрения\n4-Коррекция зрения\n";
+			std::cin >> this->tService;
 		}
 	}
 }

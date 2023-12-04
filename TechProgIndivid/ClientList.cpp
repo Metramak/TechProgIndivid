@@ -33,6 +33,23 @@ float ClientList::getDioptryByName(std::string clName)
 	return -1;
 }
 
+std::string ClientList::getNameByPhone(std::string clPhone)
+{
+	std::string name;
+	this->iter != this->clientPtrList.begin();
+
+	while (this->iter != this->clientPtrList.end())
+	{
+		name = (*iter)->getName();
+		if (clPhone == ((*iter)->getTel()))
+			return name;
+		this->iter++;
+	}
+	return "none";
+}
+
+
+
 void ClientList::showClientList()
 {
 	system("cls");
@@ -75,12 +92,12 @@ void ClientList::showClientList()
 			std::cout << (*iter)->getrDioptry();
 
 			std::cout.width(2);
-			std::cout << " || \n`";
+			std::cout << " || ";
 			
 			this->iter++;
 		}
 
-		std::cout << "\n||---------------------------||----------------------||----------------||-----------------||\n";
+		std::cout << "\n||---------------------------||----------------------||----------------||-----------------||" << std::endl;
 
 		system("pause");
 	}
