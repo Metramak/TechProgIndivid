@@ -16,7 +16,8 @@ public:
 	void insertClient(Client*);
 
 	void getDioptryByPhone(std::string);
-	std::string getNameByPhone(std::string);
 	void showClientList();
+
+	int checkClient(std::string);
 };
 

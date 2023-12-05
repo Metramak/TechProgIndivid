@@ -56,8 +56,14 @@ void Menu::interact()
 			std::cout << "Введите диоптрии клиента (если известны) Лев Прав: ";
 			std::cin >> this->tempLDiop >> this->tempRDiop;
 
-			ptrClientList->insertClient(new Client(this->tempName, this->tempPhone, this->tempLDiop, this->tempRDiop));
-
+			if (ptrClientList->checkClient(tempPhone) == -1)
+			{
+				std::cout << "\nКлиент с таким номером телефона уже есть в базе!\n\n";
+				system("pause");
+				break;
+			}
+			else
+				ptrClientList->insertClient(new Client(this->tempName, this->tempPhone, this->tempLDiop, this->tempRDiop));
 			break;
 		case '2':
 			ptrClientList->showClientList();

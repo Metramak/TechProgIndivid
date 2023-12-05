@@ -47,21 +47,6 @@ void ClientList::getDioptryByPhone(std::string clPhone)
 	system("pause");
 }
 
-std::string ClientList::getNameByPhone(std::string clPhone)
-{
-	std::string name;
-	this->iter != this->clientPtrList.begin();
-
-	while (this->iter != this->clientPtrList.end())
-	{
-		name = (*iter)->getName();
-		if (clPhone == ((*iter)->getTel()))
-			return name;
-		this->iter++;
-	}
-	return "none";
-}
-
 
 
 void ClientList::showClientList()
@@ -116,5 +101,18 @@ void ClientList::showClientList()
 		system("pause");
 	}
 
+}
+
+int ClientList::checkClient(std::string ph)
+{
+	this->iter = this->clientPtrList.begin();
+
+	while (this->iter != this->clientPtrList.end())
+	{
+		if (ph == ((*iter)->getTel()))
+			return -1;
+		this->iter++;
+	}
+	return 0;
 }
 
