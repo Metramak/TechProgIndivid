@@ -1,17 +1,21 @@
 #pragma once
+
+#include "Order.h"
+#include "optic.h"
 #include "menu.h"
 
-class OrderList
+
+class OpticOrderList
 {
 private:
-	std::list <Order*> listPtrOrder;
-	std::list <Order*>::iterator iter;
+	std::list <ClOrder*> listPtrOrder;
+	std::list <ClOrder*>::iterator iter;
 
 
 public:
-	virtual ~OrderList();
+	virtual ~OpticOrderList();
 
-	void insertOrder();
+	void insertOrder(ClOrder*);
 	void showOrderList();
 
 };

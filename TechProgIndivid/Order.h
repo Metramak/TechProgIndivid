@@ -1,25 +1,25 @@
 #pragma once
 #include "menu.h"
+#include "optic.h"
+#include "OrderList.h"
 
-class Order
+class ClOrder
 {
 private:
 	std::string name;
 	std::string phone;
 	std::string order;
 
-	int amount;
 	float totalSum;
 
 public:
-	Order(std::string n, std::string p, std::string o, int a, float ts);
+	ClOrder(std::string n, std::string p, std::string o, float ts);
 
 	//Accessors
 	std::string getName();
 	std::string getPhone();
 	std::string getOrder();
 
-	int getAmount();
 	float getSum();
 };
 
