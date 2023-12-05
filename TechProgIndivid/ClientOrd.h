@@ -1,9 +1,6 @@
 #pragma once
-#include "menu.h"
 #include "optic.h"
-#include "OrderList.h"
-
-class ClOrder
+class ClientOrd
 {
 private:
 	std::string name;
@@ -13,7 +10,7 @@ private:
 	float totalSum;
 
 public:
-	ClOrder(std::string n, std::string p, std::string o, float ts);
+	ClientOrd(std::string n, std::string p, std::string o, float ts);
 
 	//Accessors
 	std::string getName();

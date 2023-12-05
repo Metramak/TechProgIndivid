@@ -1,6 +1,6 @@
-#include "OrderList.h"
+#include "ClientOrdList.h"
 
-OpticOrderList::~OpticOrderList()
+ClientOrdList::~ClientOrdList()
 {
 	while (!this->listPtrOrder.empty())
 	{
@@ -11,12 +11,12 @@ OpticOrderList::~OpticOrderList()
 	}
 }
 
-void OpticOrderList::insertOrder(ClOrder* order)
+void ClientOrdList::insertOrder(ClientOrd* order)
 {
 	this->listPtrOrder.push_back(order);
 }
 
-void OpticOrderList::showOrderList()
+void ClientOrdList::showOrderList()
 {
 	system("cls");
 	std::cout << "||Имя            ||Телефон           || Заказ                     || Сумма         ||\n";
@@ -35,25 +35,25 @@ void OpticOrderList::showOrderList()
 			std::cout.width(3);
 			std::cout << "|| ";
 
-			std::cout.width(15);
+			std::cout.width(13);
 			std::cout << (*iter)->getName();
 
 			std::cout.width(4);
 			std::cout << " || ";
 
-			std::cout.width(3);
+			std::cout.width(16);
 			std::cout << (*iter)->getPhone();
 
-			std::cout.width(9);
+			std::cout.width(4);
 			std::cout << " || ";
 
-			std::cout.width(14);
+			std::cout.width(25);
 			std::cout << (*iter)->getOrder();
 
 			std::cout.width(4);
 			std::cout << " || ";
 
-			std::cout.width(16);
+			std::cout.width(13);
 			std::cout << (*iter)->getSum();
 
 			std::cout.width(4);

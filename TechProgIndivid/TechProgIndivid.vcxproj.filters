@@ -36,10 +36,10 @@
     <ClCompile Include="DoctorAppList.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Order.cpp">
+    <ClCompile Include="ClientOrd.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="OrderList.cpp">
+    <ClCompile Include="ClientOrdList.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,10 +62,10 @@
     <ClInclude Include="DoctorAppList.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Order.h">
+    <ClInclude Include="ClientOrd.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="OrderList.h">
+    <ClInclude Include="ClientOrdList.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

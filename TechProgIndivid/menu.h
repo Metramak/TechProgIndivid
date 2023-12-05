@@ -1,18 +1,18 @@
 #pragma once
 
-#include "client.h"
 #include "optic.h"
+#include "client.h"
 #include "ClientList.h"
 #include "DoctorAppList.h"
 #include "DoctorApp.h"
-#include "Order.h"
-#include "OrderList.h"
+#include "ClientOrd.h"
+#include "ClientOrdList.h"
 class Menu
 {
 private:
 	ClientList* ptrClientList;
 	DoctorAppList* ptrDoctAppList;
-	OpticOrderList* ptrOrderList;
+	ClientOrdList* ptrClientOrdList;
 
 	int tMonth, tDay, tService;
 	char selector;

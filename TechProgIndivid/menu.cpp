@@ -4,7 +4,7 @@ Menu::Menu()
 {
 	this->ptrClientList = new ClientList;
 	this->ptrDoctAppList = new DoctorAppList;
-	this->ptrOrderList = new OpticOrderList;
+	this->ptrClientOrdList = new ClientOrdList;
 
 	this->tempName = "guest";
 	this->tempPhone = "000";
@@ -18,7 +18,7 @@ Menu::~Menu()
 {
 	delete ptrClientList;
 	delete ptrDoctAppList;
-	delete ptrOrderList;
+	delete ptrClientOrdList;
 }
 
 void Menu::interact()
@@ -49,9 +49,10 @@ void Menu::interact()
 			this->tempLDiop = 0;
 			this->tempRDiop = 0;
 			std::cout << "\nВведите ФИО нового клиента: ";
-			std::cin >> this->tempName;
+			std::cin.get();
+			std::getline(std::cin, this->tempName);
 			std::cout << "Введите телефон клиента: ";
-			std::cin >> this->tempPhone;
+			std::getline(std::cin, this->tempPhone);
 			std::cout << "Введите диоптрии клиента (если известны) Лев Прав: ";
 			std::cin >> this->tempLDiop >> this->tempRDiop;
 
@@ -63,9 +64,10 @@ void Menu::interact()
 			break;
 		case '3':
 			std::cout << "\nВведите имя клиента: ";
-			std::cin >> this->tempName;
+			std::cin.get();
+			std::getline(std::cin, this->tempName);
 			std::cout << "Введите телефон клиента: ";
-			std::cin >> this->tempPhone;
+			std::getline(std::cin, this->tempPhone);
 			do {
 				std::cout << "Выберите услугу\n1-Консультация\n2-Повторный прием\n3-Проверка зрения\n4-Коррекция зрения\n";
 				std::cin >> this->tService;
@@ -86,24 +88,25 @@ void Menu::interact()
 			break;
 		case '5':
 			std::cout << "\nВведите телефон: ";
-			std::cin >> this->tempPhone;
+			std::cin.get();
+			std::getline(std::cin, this->tempPhone);
 			this->ptrClientList->getDioptryByPhone(tempPhone);
 			break;
-		case 6:
-			std::cout << "\n Имя клиента: ";
-			std::cin >> this->tempName;
+		case '6':
+			std::cout << "\nИмя клиента: ";
+			std::cin.get();
+			std::getline(std::cin, this->tempName);
 			std::cout << "Введите телефон: ";
-			std::cin >> this->tempPhone;
+			std::getline(std::cin, this->tempPhone);
 			std::cout << "Введите заказ: ";
-			std::cin >> this->tempOrder;
+			std::getline(std::cin, this->tempOrder);
 			std::cout << "Введите сумму: ";
 			std::cin >> this->tempOrderSum;
 
-			this->ptrOrderList->insertOrder(new ClOrder(this->tempName, this->tempPhone, this->tempOrder, this->tempOrderSum));
+			this->ptrClientOrdList->insertOrder(new ClientOrd(this->tempName, this->tempPhone, this->tempOrder, this->tempOrderSum));
 			break;
-		case 7:
-			this->ptrOrderList->showOrderList();
-			break;
+		case '7':
+			this->ptrClientOrdList->showOrderList();
 		}
 	}
 }
