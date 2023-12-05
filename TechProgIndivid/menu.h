@@ -3,14 +3,18 @@
 #include "client.h"
 #include "optic.h"
 #include "ClientList.h"
+#include "DoctorAppList.h"
 class Menu
 {
 private:
 	ClientList* ptrClientList;
+	DoctorAppList* ptrDoctAppList;
 
+	int tMonth, tDay, tService;
 	char selector;
 	std::string tempName;
 	std::string tempPhone;
+	std::string tempDiop;
 	float tempLDiop;
 	float tempRDiop;
 
@@ -18,7 +22,7 @@ private:
 
 public:
 	Menu();
-	~Menu();
+	virtual ~Menu();
 
 	//Functions
 	void interact();
