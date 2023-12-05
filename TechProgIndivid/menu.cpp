@@ -5,6 +5,7 @@ Menu::Menu()
 	this->ptrClientList = new ClientList;
 	this->ptrDoctAppList = new DoctorAppList;
 	this->ptrClientOrdList = new ClientOrdList;
+	this->ptrExpenseList = new ExpenseList;
 
 	this->tempName = "guest";
 	this->tempPhone = "000";
@@ -19,6 +20,7 @@ Menu::~Menu()
 	delete ptrClientList;
 	delete ptrDoctAppList;
 	delete ptrClientOrdList;
+	delete ptrExpenseList;
 }
 
 void Menu::interact()
@@ -36,9 +38,13 @@ void Menu::interact()
 
 		std::cout << "5. Изменить диоптрии клиента\n\n";
 
-		std::cout << "6. Добавить покупку\n\n";
+		std::cout << "6. Добавить покупку\n";
+		std::cout << "7. Добавить расход\n\n";
 
-		std::cout << "7. Вывести доходы\n\n";
+		std::cout << "8. Вывести доходы\n";
+		std::cout << "9. Вывести расходы\n\n";
+
+		std::cout << "0. Вывести годовой отчет\n\n";
 
 
 		std::cin >> this->selector;
@@ -112,7 +118,33 @@ void Menu::interact()
 			this->ptrClientOrdList->insertOrder(new ClientOrd(this->tempName, this->tempPhone, this->tempOrder, this->tempOrderSum));
 			break;
 		case '7':
+			std::cout << "\nВведите назначение расхода: ";
+			std::cin.get();
+			std::getline(std::cin, this->tempExp);
+			std::cout << "Введите описание: ";
+			std::getline(std::cin, this->temDescr);
+			std::cout << "Введите сумму: ";
+			std::cin >> tempOrderSum;
+
+			this->ptrExpenseList->insertExpense(new Expense(this->tempExp, this->temDescr, this->tempOrderSum));
+			break;
+		case '8':
 			this->ptrClientOrdList->showOrderList();
+			break;
+		case '9':
+			this->ptrExpenseList->showExpenseList();
+			break;
+		case '0':
+			tempOrderSum = ptrClientOrdList->countSum();
+			std::cout << "\nГодовой доход: " << tempOrderSum << "\n";
+			tempExpSum = ptrExpenseList->countSum();
+			std::cout << "Годовые расходы: " << tempExpSum << "\n\n";
+			if (tempOrderSum - tempExpSum >= 0)
+				std::cout << "Итог года: +" << tempOrderSum - tempExpSum << "\n\n";
+			else
+				std::cout << "Итог года: " << tempOrderSum - tempExpSum << "\n\n";
+			system("pause");
+			break;
 		}
 	}
 }

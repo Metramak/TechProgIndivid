@@ -66,3 +66,24 @@ void ClientOrdList::showOrderList()
 	}
 	system("pause");
 }
+
+float ClientOrdList::countSum()
+{
+	float sum = 0;
+
+	if (this->listPtrOrder.empty())
+	{
+		return sum;
+	}
+	else
+	{
+		this->iter = this->listPtrOrder.begin();
+
+		while (this->iter != this->listPtrOrder.end())
+		{
+			sum += (*iter)->getSum();
+			this->iter++;
+		}
+		return sum;
+	}
+}
