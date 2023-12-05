@@ -28,6 +28,7 @@ private:
 	float tempLDiop;
 	float tempRDiop;
 	float tempOrderSum;
+	float tempExpSum;
 
 
 

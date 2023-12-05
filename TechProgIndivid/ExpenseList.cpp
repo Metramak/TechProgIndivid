@@ -59,3 +59,24 @@ void ExpenseList::showExpenseList()
 	}
 	system("pause");
 }
+
+float ExpenseList::countSum()
+{
+	float sum = 0;
+
+	if (this->listPtrExpense.empty())
+	{
+		return sum;
+	}
+	else
+	{
+		this->iter = this->listPtrExpense.begin();
+
+		while (this->iter != this->listPtrExpense.end())
+		{
+			sum += (*iter)->getSum();
+			this->iter++;
+		}
+		return sum;
+	}
+}

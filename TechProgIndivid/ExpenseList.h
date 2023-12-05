@@ -11,5 +11,7 @@ public:
 
 	void insertExpense(Expense*);
 	void showExpenseList();
+
+	float countSum();
 };
 

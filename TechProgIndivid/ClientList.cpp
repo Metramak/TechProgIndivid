@@ -22,29 +22,35 @@ void ClientList::getDioptryByPhone(std::string clPhone)
 	std::string nameDio;
 	std::string name;
 
-	this->iter = this->clientPtrList.begin();
-
-	while (this->iter != this->clientPtrList.end())
+	if (this->clientPtrList.empty())
 	{
-		rDio = (*iter)->getrDioptry();
-		lDio = (*iter)->getlDioptry();
-		name = (*iter)->getName();
-
-		if (clPhone == ((*iter)->getTel()))
-		{
-			std::cout << "Имя клиента: " << name;
-			std::cout << "\nДиоптрии: " << rDio << " " << lDio;
-
-			std::cout << "\nВведите новые диоптрии (Л/П): ";
-			std::cin >> rDio >> lDio;
-			(*iter)->changeDioptry(rDio, lDio);
-			break;
-		}
-		this->iter++;
+		std::cout << "||     Клиентов Нет     ||" << std::endl;
+		system("pause");
 	}
+	else
+	{
+		this->iter = this->clientPtrList.begin();
 
-	std::cout << "\nКлиент не найден!\n\n";
-	system("pause");
+		while (this->iter != this->clientPtrList.end())
+		{
+			rDio = (*iter)->getrDioptry();
+			lDio = (*iter)->getlDioptry();
+			name = (*iter)->getName();
+
+			if (clPhone == ((*iter)->getTel()))
+			{
+				std::cout << "Имя клиента: " << name;
+				std::cout << "\nДиоптрии: " << rDio << " " << lDio;
+
+				std::cout << "\nВведите новые диоптрии (Л/П): ";
+				std::cin >> rDio >> lDio;
+				(*iter)->changeDioptry(rDio, lDio);
+				break;
+			}
+			this->iter++;
+		}
+		system("pause");
+	}
 }
 
 

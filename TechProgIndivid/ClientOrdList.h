@@ -13,6 +13,6 @@ public:
 
 	void insertOrder(ClientOrd*);
 	void showOrderList();
-
+	float countSum();
 };
 

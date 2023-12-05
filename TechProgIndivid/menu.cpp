@@ -44,6 +44,8 @@ void Menu::interact()
 		std::cout << "8. Вывести доходы\n";
 		std::cout << "9. Вывести расходы\n\n";
 
+		std::cout << "0. Вывести годовой отчет\n\n";
+
 
 		std::cin >> this->selector;
 
@@ -131,6 +133,17 @@ void Menu::interact()
 			break;
 		case '9':
 			this->ptrExpenseList->showExpenseList();
+			break;
+		case '0':
+			tempOrderSum = ptrClientOrdList->countSum();
+			std::cout << "\nГодовой доход: " << tempOrderSum << "\n";
+			tempExpSum = ptrExpenseList->countSum();
+			std::cout << "Годовые расходы: " << tempExpSum << "\n\n";
+			if (tempOrderSum - tempExpSum >= 0)
+				std::cout << "Итог года: +" << tempOrderSum - tempExpSum << "\n\n";
+			else
+				std::cout << "Итог года: " << tempOrderSum - tempExpSum << "\n\n";
+			system("pause");
 			break;
 		}
 	}
