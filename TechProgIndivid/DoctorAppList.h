@@ -1,7 +1,6 @@
 #pragma once
 #include "optic.h"
 #include "DoctorApp.h"
-#include "ClientList.h"
 class DoctorAppList
 {
 private:

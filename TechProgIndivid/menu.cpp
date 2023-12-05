@@ -2,14 +2,23 @@
 
 Menu::Menu()
 {
-	ptrClientList = new ClientList;
-	ptrDoctAppList = new DoctorAppList;
+	this->ptrClientList = new ClientList;
+	this->ptrDoctAppList = new DoctorAppList;
+	this->ptrClientOrdList = new ClientOrdList;
+
+	this->tempName = "guest";
+	this->tempPhone = "000";
+	this->tempDiop = "null";
+	this->tempOrder = "none";
+	this->tempOrderSum = 0;
+
 }
 
 Menu::~Menu()
 {
 	delete ptrClientList;
 	delete ptrDoctAppList;
+	delete ptrClientOrdList;
 }
 
 void Menu::interact()
@@ -27,6 +36,11 @@ void Menu::interact()
 
 		std::cout << "5. Изменить диоптрии клиента\n\n";
 
+		std::cout << "6. Добавить покупку\n\n";
+
+		std::cout << "7. Вывести доходы\n\n";
+
+
 		std::cin >> this->selector;
 
 		switch (this->selector)
@@ -35,23 +49,25 @@ void Menu::interact()
 			this->tempLDiop = 0;
 			this->tempRDiop = 0;
 			std::cout << "\nВведите ФИО нового клиента: ";
-			std::cin >> this->tempName;
+			std::cin.get();
+			std::getline(std::cin, this->tempName);
 			std::cout << "Введите телефон клиента: ";
-			std::cin >> this->tempPhone;
+			std::getline(std::cin, this->tempPhone);
 			std::cout << "Введите диоптрии клиента (если известны) Лев Прав: ";
 			std::cin >> this->tempLDiop >> this->tempRDiop;
-			
+
 			ptrClientList->insertClient(new Client(this->tempName, this->tempPhone, this->tempLDiop, this->tempRDiop));
 
 			break;
-		case '2': 
+		case '2':
 			ptrClientList->showClientList();
 			break;
 		case '3':
 			std::cout << "\nВведите имя клиента: ";
-			std::cin >> this->tempName;
+			std::cin.get();
+			std::getline(std::cin, this->tempName);
 			std::cout << "Введите телефон клиента: ";
-			std::cin >> this->tempPhone;
+			std::getline(std::cin, this->tempPhone);
 			do {
 				std::cout << "Выберите услугу\n1-Консультация\n2-Повторный прием\n3-Проверка зрения\n4-Коррекция зрения\n";
 				std::cin >> this->tService;
@@ -65,17 +81,32 @@ void Menu::interact()
 				std::cin >> this->tDay;
 			} while (this->tDay < 0 || this->tDay > 31);
 
-			ptrDoctAppList->insertAppoint(new DoctorApp(this->tMonth, this->tDay, this->tService, this->tempName, this->tempPhone));
+			this->ptrDoctAppList->insertAppoint(new DoctorApp(this->tMonth, this->tDay, this->tService, this->tempName, this->tempPhone));
 			break;
 		case '4':
-			ptrDoctAppList->showAppList();
+			this->ptrDoctAppList->showAppList();
 			break;
 		case '5':
 			std::cout << "\nВведите телефон: ";
-			std::cin >> tempPhone;
-			ptrClientList->getDioptryByPhone(tempPhone);
+			std::cin.get();
+			std::getline(std::cin, this->tempPhone);
+			this->ptrClientList->getDioptryByPhone(tempPhone);
 			break;
+		case '6':
+			std::cout << "\nИмя клиента: ";
+			std::cin.get();
+			std::getline(std::cin, this->tempName);
+			std::cout << "Введите телефон: ";
+			std::getline(std::cin, this->tempPhone);
+			std::cout << "Введите заказ: ";
+			std::getline(std::cin, this->tempOrder);
+			std::cout << "Введите сумму: ";
+			std::cin >> this->tempOrderSum;
 
+			this->ptrClientOrdList->insertOrder(new ClientOrd(this->tempName, this->tempPhone, this->tempOrder, this->tempOrderSum));
+			break;
+		case '7':
+			this->ptrClientOrdList->showOrderList();
 		}
 	}
 }

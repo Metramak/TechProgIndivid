@@ -129,6 +129,8 @@
   <ItemGroup>
     <ClCompile Include="client.cpp" />
     <ClCompile Include="ClientList.cpp" />
+    <ClCompile Include="ClientOrd.cpp" />
+    <ClCompile Include="ClientOrdList.cpp" />
     <ClCompile Include="DoctorApp.cpp" />
     <ClCompile Include="DoctorAppList.cpp" />
     <ClCompile Include="main.cpp" />
@@ -138,6 +140,8 @@
   <ItemGroup>
     <ClInclude Include="client.h" />
     <ClInclude Include="ClientList.h" />
+    <ClInclude Include="ClientOrd.h" />
+    <ClInclude Include="ClientOrdList.h" />
     <ClInclude Include="DoctorApp.h" />
     <ClInclude Include="DoctorAppList.h" />
     <ClInclude Include="menu.h" />
