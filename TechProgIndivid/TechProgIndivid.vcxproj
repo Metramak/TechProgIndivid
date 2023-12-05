@@ -134,6 +134,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="optic.cpp" />
+    <ClCompile Include="Order.cpp" />
+    <ClCompile Include="OrderList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client.h" />
@@ -142,6 +144,8 @@
     <ClInclude Include="DoctorAppList.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="optic.h" />
+    <ClInclude Include="Order.h" />
+    <ClInclude Include="OrderList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,8 @@
 #include "optic.h"
 #include "ClientList.h"
 #include "DoctorAppList.h"
+#include "DoctorApp.h"
+#include "Order.h"
 class Menu
 {
 private:
