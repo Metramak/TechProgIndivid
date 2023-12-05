@@ -3,18 +3,18 @@
 #include "client.h"
 #include "optic.h"
 #include "ClientList.h"
+#include "DoctorAppList.h"
 class Menu
 {
 private:
 	ClientList* ptrClientList;
-
-	std::vector<DoctorApp*> vectPtrAppDoctor;
-	std::vector<DoctorApp*>::iterator iter;
+	DoctorAppList* ptrDoctAppList;
 
 	int tMonth, tDay, tService;
 	char selector;
 	std::string tempName;
 	std::string tempPhone;
+	std::string tempDiop;
 	float tempLDiop;
 	float tempRDiop;
 

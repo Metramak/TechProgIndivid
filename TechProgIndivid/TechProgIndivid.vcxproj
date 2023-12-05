@@ -130,6 +130,7 @@
     <ClCompile Include="client.cpp" />
     <ClCompile Include="ClientList.cpp" />
     <ClCompile Include="DoctorApp.cpp" />
+    <ClCompile Include="DoctorAppList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="optic.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="client.h" />
     <ClInclude Include="ClientList.h" />
     <ClInclude Include="DoctorApp.h" />
+    <ClInclude Include="DoctorAppList.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="optic.h" />
   </ItemGroup>

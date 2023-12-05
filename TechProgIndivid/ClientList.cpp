@@ -2,7 +2,7 @@
 
 ClientList::~ClientList()
 {
-	while (this->clientPtrList.empty())
+	while (!this->clientPtrList.empty())
 	{
 		this->iter = this->clientPtrList.begin();
 		delete* this->iter;
@@ -16,9 +16,11 @@ void ClientList::insertClient(Client* clPtr)
 	this->clientPtrList.push_back(clPtr);
 }
 
-float ClientList::getDioptryByName(std::string clName)
+void ClientList::getDioptryByPhone(std::string clPhone)
 {
 	float rDio, lDio;
+	std::string nameDio;
+	std::string name;
 
 	this->iter = this->clientPtrList.begin();
 
@@ -26,11 +28,23 @@ float ClientList::getDioptryByName(std::string clName)
 	{
 		rDio = (*iter)->getrDioptry();
 		lDio = (*iter)->getlDioptry();
-		if (clName == ((*iter)->getName()))
-			return rDio, lDio;
+		name = (*iter)->getName();
+
+		if (clPhone == ((*iter)->getTel()))
+		{
+			std::cout << "Èìÿ êëèåíòà: " << name;
+			std::cout << "\nÄèîïòğèè: " << rDio << " " << lDio;
+
+			std::cout << "\nÂâåäèòå íîâûå äèîïòğèè (Ë/Ï): ";
+			std::cin >> rDio >> lDio;
+			(*iter)->changeDioptry(rDio, lDio);
+			break;
+		}
 		this->iter++;
 	}
-	return -1;
+
+	std::cout << "\nÊëèåíò íå íàéäåí!\n\n";
+	system("pause");
 }
 
 std::string ClientList::getNameByPhone(std::string clPhone)
@@ -103,3 +117,4 @@ void ClientList::showClientList()
 	}
 
 }
+

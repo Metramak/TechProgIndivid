@@ -10,12 +10,16 @@ private:
 	std::string phone;
 
 public:
-	DoctorApp(int m, int d, int s, std::string nam, std::string ph) : month(m), day(d), service(s), name(nam), phone(ph)
-	{
 
-	}
+	DoctorApp(int m, int d, int s, std::string nam, std::string ph);
 
+	//Accessors
 
+	int getMonth();
+	int getDay();
+	int getService();
+	std::string getName();
+	std::string getPhone();
 
 };
 

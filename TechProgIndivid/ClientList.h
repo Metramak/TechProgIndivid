@@ -14,9 +14,9 @@ public:
 	virtual ~ClientList();
 
 	void insertClient(Client*);
-	float getDioptryByName(std::string);
+
+	void getDioptryByPhone(std::string);
 	std::string getNameByPhone(std::string);
 	void showClientList();
-
 };
 
